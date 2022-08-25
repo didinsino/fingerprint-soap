@@ -1,0 +1,28 @@
+{
+  "name": "fingerprint-soap",
+  "version": "1.0.0",
+  "description": "A NodeJS Package to communicate with the standalone fingerprint machine through its SOAP interface",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/didinsino/fingerprint-soap.git"
+  },
+  "keywords": [
+    "javascript",
+    "nodejs",
+    "fingerprint",
+    "soap"
+  ],
+  "author": "didinsino",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/didinsino/fingerprint-soap/issues"
+  },
+  "homepage": "https://github.com/didinsino/fingerprint-soap#readme",
+  "dependencies": {
+    "fast-xml-parser": "^4.0.9"
+  }
+}
