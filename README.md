@@ -26,8 +26,6 @@ getAllLog()
 
 ## API Documentation
 
-***
-
 <a name="FingerprintSOAP"></a>
 
 ### FingerprintSOAP
@@ -64,7 +62,7 @@ FingerprintSOAP constructor
 
 <a name="FingerprintSOAP+getUserInfo"></a>
 
-### fingerprintSOAP.getUserInfo(userId) ⇒ <code>Promise</code>
+### getUserInfo(userId) ⇒ <code>Promise</code>
 Get user information by user id from device
 
 **Kind**: instance method of [<code>FingerprintSOAP</code>](#FingerprintSOAP)
@@ -78,7 +76,7 @@ Get user information by user id from device
 
 <a name="FingerprintSOAP+getAllUserInfo"></a>
 
-### fingerprintSOAP.getAllUserInfo() ⇒ <code>Promise</code>
+### getAllUserInfo() ⇒ <code>Promise</code>
 Get all users in device
 
 **Kind**: instance method of [<code>FingerprintSOAP</code>](#FingerprintSOAP)
@@ -87,7 +85,7 @@ Get all users in device
 
 <a name="FingerprintSOAP+deleteUser"></a>
 
-### fingerprintSOAP.deleteUser(userId) ⇒ <code>Promise</code>
+### deleteUser(userId) ⇒ <code>Promise</code>
 Delete user from device
 
 **Kind**: instance method of [<code>FingerprintSOAP</code>](#FingerprintSOAP)
@@ -101,7 +99,7 @@ Delete user from device
 
 <a name="FingerprintSOAP+getUserTemplate"></a>
 
-### fingerprintSOAP.getUserTemplate(userId, fingerId) ⇒ <code>Promise</code>
+### getUserTemplate(userId, fingerId) ⇒ <code>Promise</code>
 Get a fingerprint template of user
 
 **Kind**: instance method of [<code>FingerprintSOAP</code>](#FingerprintSOAP)
@@ -116,7 +114,7 @@ Get a fingerprint template of user
 
 <a name="FingerprintSOAP+getAttLog"></a>
 
-### fingerprintSOAP.getAttLog([userId]) ⇒ <code>Promise</code>
+### getAttLog([userId]) ⇒ <code>Promise</code>
 Read out the attendance record from device
 
 **Kind**: instance method of [<code>FingerprintSOAP</code>](#FingerprintSOAP)
@@ -130,7 +128,7 @@ Read out the attendance record from device
 
 <a name="FingerprintSOAP+clearAttLog"></a>
 
-### fingerprintSOAP.clearAttLog() ⇒ <code>Promise</code>
+### clearAttLog() ⇒ <code>Promise</code>
 Delete all attendance record from attendance device
 
 **Kind**: instance method of [<code>FingerprintSOAP</code>](#FingerprintSOAP)
@@ -139,7 +137,7 @@ Delete all attendance record from attendance device
 
 <a name="FingerprintSOAP+makeRequest"></a>
 
-### fingerprintSOAP.makeRequest(command, args) ⇒ <code>Promise</code>
+### makeRequest(command, args) ⇒ <code>Promise</code>
 Make SOAP request to device
 
 **Kind**: instance method of [<code>FingerprintSOAP</code>](#FingerprintSOAP)
@@ -154,7 +152,7 @@ Make SOAP request to device
 
 <a name="FingerprintSOAP+parseResponse"></a>
 
-### fingerprintSOAP.parseResponse(response, command) ⇒ <code>Object</code> \| <code>Array</code> \| <code>null</code>
+### parseResponse(response, command) ⇒ <code>Object</code> \| <code>Array</code> \| <code>null</code>
 Parse XML response into javascript object
 
 **Kind**: instance method of [<code>FingerprintSOAP</code>](#FingerprintSOAP)
@@ -169,7 +167,7 @@ Parse XML response into javascript object
 
 <a name="FingerprintSOAP+generateXMLContent"></a>
 
-### fingerprintSOAP.generateXMLContent(command, jsonData) ⇒ <code>string</code>
+### generateXMLContent(command, jsonData) ⇒ <code>string</code>
 Generate XML string from command and parameters
 
 **Kind**: instance method of [<code>FingerprintSOAP</code>](#FingerprintSOAP)
