@@ -7,7 +7,7 @@ class FingerprintSOAP {
    * FingerprintSOAP constructor
    * @param {string} host device IP address
    * @param {number} port device port (default 80)
-   * @param {number} comKey device communication key/password
+   * @param {number} comKey device communication key/password (default 0)
    * @param {number} timeout connection timeout in milliseconds
    */
   constructor(host, port = 80, comKey = 0, timeout = 5000) {
@@ -20,7 +20,7 @@ class FingerprintSOAP {
   }
 
   /**
-   * Get user information by user id
+   * Get user information by user id from device
    * @param {number} userId user ID
    * @returns {Promise} Object user data { PIN, Name, Password, Group, Privilege, Card, PIN2, TZ1, TZ2, TZ3 }
    */
@@ -29,15 +29,21 @@ class FingerprintSOAP {
   }
 
   /**
-   * Get all users ini device
+   * Get all users in device
    * @returns {Promise} array of users [{ PIN, Name, Password, Group, Privilege, Card, PIN2, TZ1, TZ2, TZ3 }, ...]
    */
   async getAllUserInfo() {
     return this.makeRequest('GetAllUserInfo')
   }
 
+  /**
+   * Delete user from device
+   * @param {number} userId user ID
+   * @returns {Promise} boolean true if success
+   */
   async deleteUser(userId) {
-    return this.makeRequest('DeleteUser', { PIN: userId })
+    const response = await this.makeRequest('DeleteUser', { PIN: userId })
+    return response['Result'] == 'Succeed!'
   }
 
   /**
@@ -51,7 +57,7 @@ class FingerprintSOAP {
   }
 
   /**
-   * Read out the attendance record from attendance machines
+   * Read out the attendance record from device
    * @param {number=} userId user ID. If empty, get all users log
    * @returns {Promise} array attendance data [{PIN: 2376, DateTime(yyyy-mm-dd hh:mm:ss), Verified, Status, WorkCode }, ...]
    */
@@ -60,12 +66,17 @@ class FingerprintSOAP {
     return this.makeRequest('GetAttLog', jsonData)
   }
 
+  /**
+   * Delete all attendance record from attendance device
+   * @returns {Promise} boolean true if success
+   */
   async clearAttLog() {
-    return this.makeRequest('ClearData', { Value: 1 })
+    const response = this.makeRequest('ClearData', { Value: 1 })
+    return response['Result'] == 'Succeed!'
   }
 
   /**
-   * Send SOAP request
+   * Make SOAP request to device
    * @param {string} command request command (pascal case)
    * @param {Object} args request parameters
    * @returns {Promise} string raw response
@@ -119,7 +130,7 @@ class FingerprintSOAP {
    * Parse XML response into javascript object
    * @param {string} response raw response
    * @param {string} command request command
-   * @returns {Object|Array|null}
+   * @returns {Object|Array|null} object/array/null
    */
   parseResponse(response, command) {
     const parser = new XMLParser()

@@ -1,6 +1,6 @@
 {
   "name": "fingerprint-soap",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A NodeJS Package to communicate with the standalone fingerprint machine through its SOAP interface",
   "main": "index.js",
   "scripts": {
